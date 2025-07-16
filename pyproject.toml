@@ -4,8 +4,46 @@ version = "0.0.1"
 description = "sample text"
 readme = "README.md"
 requires-python = ">=3.12"
+authors = [{ name = "Kristaps Karlsons", email = "kristaps.karlsons@gmail.com" }]
+keywords = ["mcp", "llm", "chatbot", "cli", "embedded", "arm"]
+
+license = { text = "Apache License (2.0)" }
+
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+Repository = "https://github.com/skakri/contextwire"
+Issues = "https://github.com/skakri/contextwire/issues"
+
 dependencies = [
     "logic2-automation>=1.0.7",
     "mcp[cli]>=1.11.0",
-    "ruff>=0.12.3",
 ]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-mock",
+    "pytest-cov",
+    "ruff",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests"
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = []
+
+[tool.ruff]
+line-length = 80
+target-version = "py312"
